@@ -1,6 +1,6 @@
-#alice_skill_multiplication_table
+# alice_skill_multiplication_table
 
-##up
+## up
     python3 -m venv venv
     source venv/bin/activate
     pip install -r requirements.txt 
