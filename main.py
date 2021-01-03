@@ -61,7 +61,7 @@ def run_script():
         elif state == State.Question:
             old = question
             question = random.choice(questions)
-            if request.has_lemmas(mul(question)):
+            if request.has_lemmas(mul(old)):
                 reaction = random.choice(praises)
             else:
                 reaction = random.choice(errors)
