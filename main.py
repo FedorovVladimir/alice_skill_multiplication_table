@@ -51,7 +51,7 @@ def run_script():
         'Готов учить таблицу умножения?',
         suggest('Да', 'Готов', 'Конечно'))
     while True:
-        if request.has_lemmas('помощь', 'что ты умеешь'):
+        if request.has_lemmas('помощь', 'умеешь'):
             state = State.FirstQuestion
             yield say('Я умею задавать вопросы,\n'
                       'например "2 на 2", а ты должен ответить.\n'
