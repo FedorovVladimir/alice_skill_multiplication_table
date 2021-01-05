@@ -56,13 +56,14 @@ def run_script():
             yield say('Я умею задавать вопросы, например "2 на 2", а ты должен ответить.\n'
                       'Я проверю!\n'
                       'Готов учить таблицу умножения?', suggest('Да', 'Готов', 'Конечно'))
-        if request.has_lemmas('помощь'):
+
+        elif request.has_lemmas('помощь'):
             state = State.FirstQuestion
             yield say('Все просто! Я буду задавать вопросы, например "2 на 2", а ты должен ответить.\n'
                       'Я проверю!\n'
                       'Готов учить таблицу умножения?', suggest('Да', 'Готов', 'Конечно'))
 
-        if state == State.Start:
+        elif state == State.Start:
             if request.has_lemmas('Да', 'Готов', 'Давай', 'Конечно', 'Начнем'):
                 state = State.FirstQuestion
             else:
