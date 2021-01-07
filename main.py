@@ -64,8 +64,9 @@ def run_script():
                 else:
                     reaction = random.choice(errors)
                 if count_question_with_answer % 10 == 0:
-                    yield say(reaction + '\n' + result_text(count_question_with_good_answer, count_question_with_answer) + '\n\n' +
-                              answer_text(old) + '\n\n' + question_text(question))
+                    yield say(reaction + '\n' + answer_text(old) + '\n\n' +
+                              result_text(count_question_with_good_answer, count_question_with_answer) + '\n\n' +
+                              question_text(question))
                 else:
                     yield say(reaction + '\n' + answer_text(old) + '\n\n' + question_text(question))
 
