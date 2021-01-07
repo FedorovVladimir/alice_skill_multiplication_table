@@ -60,3 +60,12 @@ def count_answers(text):
     :return: количество целых чисел в строке
     """
     return len(set(re.findall('\d+', text)))
+
+
+def result_text(count_question_with_good_answer, count_question_with_answer):
+    p = count_question_with_good_answer / count_question_with_answer
+    if p > 0.8:
+        return f'Отлично справляещься!\n' \
+               f'Ты правильно ответил на {count_question_with_good_answer} из {count_question_with_answer}!'
+    else:
+        return f'Ты правильно ответил на {count_question_with_good_answer} из {count_question_with_answer}!'
