@@ -1,4 +1,5 @@
 import random
+import re
 
 praises = ['Верно', 'Всё верно', 'Ты прав', 'Да, это так']
 errors = ['Это не правильно', 'Тут ты не прав', 'Ошибка']
@@ -50,3 +51,12 @@ def answer_text(q) -> str:
     :return: полный текст примера
     """
     return q[0] + ' ' + random.choice(words_operations) + ' ' + q[1] + ' ' + random.choice(words) + ' ' + mul(q)
+
+
+def count_answers(text):
+    """
+    подсчет количества целых чисел в строке
+    :param text: строка
+    :return: количество целых чисел в строке
+    """
+    return len(set(re.findall('\d+', text)))

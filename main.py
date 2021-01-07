@@ -3,8 +3,8 @@ import random
 from alice_scripts import Skill, say, request, suggest
 
 from questions import questions
+from rules import question_text, mul, praises, errors, answer_text, start_text, help_text, can_text, count_answers
 from states import State
-from texts import question_text, mul, praises, errors, answer_text, start_text, help_text, can_text
 
 skill = Skill(__name__)
 
@@ -43,15 +43,22 @@ def run_script():
 
         # обрабатывает ответ и задаем новый вопрос
         elif state == State.AnswerAndNewQuestion:
-            old = question
-            question = random.choice(questions)
-            # правильно
-            if request.has_lemmas(mul(old)):
-                reaction = random.choice(praises)
-            # не правильно
+            # проверка количества чисел
+            count = count_answers(request.command)
+            if count == 0:
+                yield say('Ответом должно быть число.\nДавай ещё раз.\n' + question_text(question))
+            elif count > 1:
+                yield say('Ответом должно быть одно число.\nДавай ещё раз.\n' + question_text(question))
             else:
-                reaction = random.choice(errors)
-            yield say(reaction + '\n' + answer_text(old) + '\n\n' + question_text(question))
+                old = question
+                question = random.choice(questions)
+                # правильно
+                if request.has_lemmas(mul(old)):
+                    reaction = random.choice(praises)
+                # не правильно
+                else:
+                    reaction = random.choice(errors)
+                yield say(reaction + '\n' + answer_text(old) + '\n\n' + question_text(question))
 
         else:
             yield say('Не понял')
