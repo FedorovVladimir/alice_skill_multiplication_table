@@ -46,9 +46,9 @@ def run_script():
             # проверка количества чисел
             count = count_answers(request.command)
             if count == 0:
-                yield say('Ответом должно быть число.\nДавай ещё раз.\n' + question_text(question))
+                yield say('Ответом должно быть число.\nДавай ещё раз.\n\n' + question_text(question))
             elif count > 1:
-                yield say('Ответом должно быть одно число.\nДавай ещё раз.\n' + question_text(question))
+                yield say('Ответом должно быть одно число.\nДавай ещё раз.\n\n' + question_text(question))
             else:
                 old = question
                 question = random.choice(questions)
