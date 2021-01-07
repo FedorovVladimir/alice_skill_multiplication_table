@@ -54,7 +54,8 @@ def run_script():
                 yield say('Ответом должно быть одно число.\nДавай ещё раз.\n\n' + question_text(question))
             else:
                 old = question
-                question = random.choice(questions)
+                while old == question:
+                    question = random.choice(questions)
                 count_question_with_answer += 1
                 # правильно
                 if request.has_lemmas(mul(old)):
