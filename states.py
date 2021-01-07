@@ -3,5 +3,5 @@ from enum import Enum
 
 class State(Enum):
     Start = 1
-    FirstQuestion = 2
-    Question = 3
+    NewQuestion = 2
+    AnswerAndNewQuestion = 3
