@@ -2,9 +2,9 @@ import random
 
 from alice_scripts import Skill, say, request, suggest
 
-from questions import questions
-from rules import question_text, mul, praises, errors, answer_text, start_text, help_text, can_text, count_answers, \
-    result_text
+from questions_mul_table import questions
+from rules_mul_table import question_text, mul, praises, errors, answer_text, start_text, help_text, can_text, \
+    count_answers, result_text
 from states import State
 
 skill = Skill(__name__)
