@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   skill:
-    container_name: skill
+    container_name: mul_table_skill
     build:
       context: .
       dockerfile: Dockerfile
