@@ -1,4 +1,4 @@
-# alice_skill_multiplication_table
+# alice_skills
 
 ## up
     python3 -m venv venv
