@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+
+  skill:
+    container_name: skill
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python3 main_div_table.py
+    restart: "on-failure"
+    ports:
+      - 5000:5000
