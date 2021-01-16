@@ -32,7 +32,7 @@ def div(q) -> str:
     :param q: массив, первые 2 элемента которого - множители
     :return: строковое представление произведения
     """
-    return str(int(q[0]) / int(q[1]))
+    return str(int(int(q[0]) / int(q[1])))
 
 
 def question_text(q) -> str:
