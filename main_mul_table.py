@@ -2,10 +2,10 @@ import random
 
 from alice_scripts import Skill, say, request, suggest
 
-from questions_mul_table import questions
-from rules import count_answers, praises, errors, result_text
-from rules_mul_table import question_text, mul, answer_text, start_text, help_text, can_text
-from states import State
+from src.mul_table.questions_mul_table import questions
+from src.rules import count_answers, praises, errors, result_text
+from src.mul_table.rules_mul_table import question_text, mul, answer_text, start_text, help_text, can_text
+from src.states import State
 
 skill = Skill(__name__)
 
