@@ -3,8 +3,8 @@ import random
 from alice_scripts import Skill, say, request, suggest
 
 from questions_mul_table import questions
-from rules_mul_table import question_text, mul, praises, errors, answer_text, start_text, help_text, can_text, \
-    count_answers, result_text
+from rules import count_answers, praises, errors, result_text
+from rules_mul_table import question_text, mul, answer_text, start_text, help_text, can_text
 from states import State
 
 skill = Skill(__name__)
@@ -14,8 +14,8 @@ skill = Skill(__name__)
 def run_script():
     question = []
     state = State.Start
-    count_question_with_answer = 0
-    count_question_with_good_answer = 0
+    count_answer = 0
+    count_good_answer = 0
 
     # приветственная фраза
     yield say(start_text(), suggest('Да', 'Готов', 'Конечно'))
@@ -56,20 +56,20 @@ def run_script():
                 old = question
                 while old == question:
                     question = random.choice(questions)
-                count_question_with_answer += 1
+                count_answer += 1
                 # правильно
                 if request.has_lemmas(mul(old)):
                     reaction = random.choice(praises)
-                    count_question_with_good_answer += 1
+                    count_good_answer += 1
                 # не правильно
                 else:
                     reaction = random.choice(errors)
-                if count_question_with_answer % 10 == 0:
-                    yield say(reaction + '\n' + answer_text(old) + '\n\n' +
-                              result_text(count_question_with_good_answer, count_question_with_answer) + '\n\n' +
-                              question_text(question))
-                else:
-                    yield say(reaction + '\n' + answer_text(old) + '\n\n' + question_text(question))
+
+                text = reaction + '\n' + answer_text(old) + '\n\n'
+                if count_answer % 7 == 0:
+                    text += result_text(count_good_answer, count_answer) + '\n\n'
+                text += question_text(question)
+                yield say(text)
 
         else:
             yield say('Не понял')
