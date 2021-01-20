@@ -8,6 +8,8 @@ __Учим таблицу умножения__ - этот навык помож�
 
 __Учим таблицу деления__ - этот навык поможет научиться делить (действия обратые действиям таблицы умножения).
 
+<a href="https://dialogs.yandex.ru/store/skills/e469a79c-uchim-tablicu-deleni?utm_source=site&utm_medium=badge&utm_campaign=v1&utm_term=d1" target="_blank"><img alt="Алиса это умеет" src="https://dialogs.s3.yandex.net/badges/v1-term1.svg"/></a>
+
 ## up
 
     python3 -m venv venv
